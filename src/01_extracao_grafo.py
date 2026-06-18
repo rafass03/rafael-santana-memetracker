@@ -5,7 +5,6 @@ output_file = "data/edges_2days.csv"
 os.makedirs("data", exist_ok=True)
 
 # Vamos filtrar para os dias 01 e 02 de Agosto.
-# Como o arquivo está ordenado por tempo, podemos parar de ler quando chegar no dia 03.
 valid_days = ["2008-08-01", "2008-08-02"]
 stop_day = "2008-08-03"
 
@@ -19,7 +18,6 @@ print(f"Lendo {input_file} e extraindo arestas para {output_file}...")
 with open(input_file, 'rt', encoding='utf-8', errors='ignore') as fin, \
      open(output_file, 'wt', encoding='utf-8') as fout:
     
-    # Escrever cabeçalho
     fout.write("source,target\n")
     
     for line in fin:
@@ -43,7 +41,6 @@ with open(input_file, 'rt', encoding='utf-8', errors='ignore') as fin, \
                 if any(time_str.startswith(day) for day in valid_days):
                     in_valid_time = True
                 elif time_str.startswith(stop_day):
-                    # Como o arquivo é cronológico, podemos parar a leitura totalmente aqui e poupar tempo
                     print(f"Chegamos ao dia {stop_day}. Parando a extração.")
                     break
                 else:

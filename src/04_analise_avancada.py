@@ -41,9 +41,7 @@ def main():
     E = LCC.number_of_edges()
     print_and_write(out_file, f"LCC: {N} Vertices, {E} Arestas")
     
-    # ---------------------------------------------------------
-    # PARTE 1: SMALL-WORLD (APENDICE A)
-    # ---------------------------------------------------------
+    # SMALL-WORLD
     print_and_write(out_file, "\n2. ANALISANDO SMALL-WORLD...")
     k_avg = 2 * E / N
     print_and_write(out_file, f"Grau medio <k>: {k_avg:.4f}")
@@ -67,9 +65,7 @@ def main():
     print_and_write(out_file, f"Caminho Medio Random (L_rand): {L_rand:.4f}")
     print_and_write(out_file, f"Indice Sigma (Small-worldness): {sigma:.4f} (Se > 1, eh small-world)")
     
-    # ---------------------------------------------------------
-    # PARTE 2: POWER LAW / LEI DE POTENCIA (APENDICE B)
-    # ---------------------------------------------------------
+    # LEI DE POTENCIA
     print_and_write(out_file, "\n3. ANALISANDO POWER LAW...")
     degree_sequence = [d for n, d in G_undir.degree()]
     counts = collections.Counter(degree_sequence)
@@ -102,9 +98,7 @@ def main():
     plt.savefig(os.path.join(report_dir, "power_law.png"))
     plt.close()
     
-    # ---------------------------------------------------------
-    # PARTE 3: ROBUSTEZ (APENDICE C)
-    # ---------------------------------------------------------
+    # ROBUSTEZ
     print_and_write(out_file, "\n4. INICIANDO TESTE DE ROBUSTEZ...")
     r = int(0.05 * N)
     T = 30

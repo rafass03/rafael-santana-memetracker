@@ -73,11 +73,9 @@ print(f"  Coeficiente de clusterização médio: {avg_clustering:.4f}")
 triangles = sum(nx.triangles(LCC).values()) // 3
 print(f"  Número de triângulos: {triangles} (Tempo: {time.time()-t0:.2f}s)")
 
-# Diâmetro, Raio e Comprimento Médio dos Caminhos podem ser extremamente custosos O(V * E)
-# Vamos tentar calcular. Se for muito grande, faremos uma amostragem (Permitido com justificativa).
-print("\n6. Calculando Diâmetro, Raio e Comprimento Médio dos Caminhos (Pode demorar)...")
+# Diâmetro, Raio e Comprimento Médio dos Caminhos
+print("\n6. Calculando Diâmetro, Raio e Comprimento Médio dos Caminhos...")
 if LCC.number_of_nodes() > 5000:
-    print("  [AVISO] A LCC tem mais de 5000 nós. O cálculo exato pode demorar muitas horas.")
     print("  Aplicando amostragem em 500 nós escolhidos aleatoriamente para estimar...")
     
     sampled_nodes = random.sample(list(LCC.nodes()), min(500, LCC.number_of_nodes()))
@@ -110,7 +108,7 @@ else:
     print(f"  (Tempo de cálculo: {time.time()-t0:.2f}s)")
 
 print("\n7. Gerando Gráficos...")
-# Plot da distribuição de graus (escala Log-Log é melhor para leis de potência)
+# Plot da distribuição de graus (escala Log-Log)
 plt.figure(figsize=(8, 6))
 degree_counts = nx.degree_histogram(G)
 x = range(len(degree_counts))
@@ -125,7 +123,6 @@ plt.savefig(os.path.join(report_dir, "distribuicao_graus.png"))
 plt.close()
 
 # Visualização reduzida do grafo
-# Em grafos grandes é impossível plotar tudo. Vamos plotar o 2-core ou uma amostra.
 print("  Gerando visualização reduzida...")
 core_graph = nx.k_core(LCC, k=min(max_deg // 2, 5)) 
 if core_graph.number_of_nodes() < 10 or core_graph.number_of_nodes() > 1000:

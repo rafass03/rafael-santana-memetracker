@@ -1,0 +1,31 @@
+# Arquivos de dados gigantes
+quotes_2008-08.txt
+*.gz
+*.csv
+
+# Pastas de ambiente virtual
+venv/
+env/
+.env
+
+# Arquivos gerados pelo Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+relatorio_*.txt
+
+# Arquivos temporários e do sistema
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks e IDEs
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# Ignorar a pasta de relatórios/latex
+report/
+*.pdf
+*.aux
+*.log

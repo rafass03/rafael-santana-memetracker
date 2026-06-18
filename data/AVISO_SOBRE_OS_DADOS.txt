@@ -1,0 +1,13 @@
+=================================================
+ AVISO IMPORTANTE SOBRE OS DADOS DE ORIGEM
+=================================================
+
+Os arquivos de dados brutos (`quotes_2008-08.txt`) e os grafos extraídos (`edges_2days.csv`)
+NÃO foram incluídos neste repositório do GitHub devido ao seu tamanho massivo (4 GB e 188 MB, respectivamente), o que excede o limite permitido pelo GitHub.
+
+Para que os scripts ou Notebooks funcionem na sua máquina, você precisa:
+1. Fazer o download do dataset original providenciado na disciplina.
+2. Descompactar o arquivo (se estiver como .gz).
+3. Colocar o arquivo resultante COM O NOME EXATO de `quotes_2008-08.txt` NESTA pasta (`data/`).
+
+Após isso, você poderá rodar a extração (passo 01) sem nenhum problema!

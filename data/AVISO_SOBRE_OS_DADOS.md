@@ -2,9 +2,9 @@
  AVISO IMPORTANTE SOBRE OS DADOS!
 =================================================
 
-Os arquivos de dados brutos (`quotes_2008-08.txt`) NÃO foram incluídos neste repositório devido ao seu tamanho massivo (4 GB), o que excede os limites do GitHub.
+Os arquivos de dados brutos (`quotes_2008-08.txt.gz e quotes_2008-08.txt`) NÃO foram incluídos neste repositório devido ao seu tamanho massivo (4 GB e 1,1GB), o que excede os limites do GitHub.
 
-O dado processado resultante (`edges_2days.csv`) possui 188 MB e também não pôde ser incluído de forma direta. Em vez disso, ele está disponibilizado aqui nesta pasta de forma compactada: **`edges_2days.zip`**.
+O dado processado resultante do 01 do Jupyter ou Script (`edges_2days.csv`) possui 188 MB e também não pôde ser incluído de forma direta. Em vez disso, ele está disponibilizado aqui nesta pasta de forma compactada: **`edges_2days.zip`**.
 
 ### INSTRUÇÕES:
 

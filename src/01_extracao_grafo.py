@@ -4,6 +4,10 @@ input_file = "data/quotes_2008-08.txt"
 output_file = "data/edges_2days.csv"
 os.makedirs("data", exist_ok=True)
 
+if not os.path.exists(input_file):
+    print(f"ERRO: Dataset nao encontrado! Baixe o arquivo 'quotes_2008-08.txt' descompactado e coloque na pasta data/")
+    exit(1)
+
 # Vamos filtrar para os dias 01 e 02 de Agosto.
 valid_days = ["2008-08-01", "2008-08-02"]
 stop_day = "2008-08-03"

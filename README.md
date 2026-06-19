@@ -21,8 +21,8 @@ Este repositório contém o código fonte e as análises de uma rede complexa ex
 pip install pandas networkx matplotlib scipy numpy jupyter
 ```
 3. Sobre os dados:
-- 3.1. O arquivo original bruto e extraído (`quotes_2008-08.txt.gz` e `quotes_2008-08.txt`) tem 4GB e 1,1GB, consequentemente não podem ser incluídos no repositório devido ao seu tamanho. A filtragem desse dado bruto (redução para uma janela de 2 dias visando caber na memória RAM) foi o **Cálculo de determinação do grafo** utilizado neste trabalho, detalhado no Notebook 01.
-3.2. O dado resultante tratado (`edges_2days.csv`) ainda sim possui 188 MB (acima do limite do GitHub). Por conta disso, ele foi zipado. **Antes de executar os Notebooks, vá até a pasta `data/` e descompacte o arquivo `edges_2days.zip`.**
+- O arquivo original bruto e extraído (`quotes_2008-08.txt.gz` e `quotes_2008-08.txt`) tem 4GB e 1,1GB, consequentemente não podem ser incluídos no repositório devido ao seu tamanho. A filtragem desse dado bruto (redução para uma janela de 2 dias visando caber na memória RAM) foi o **Cálculo de determinação do grafo** utilizado neste trabalho, detalhado no Notebook 01.
+- O dado resultante tratado (`edges_2days.csv`) ainda sim possui 188 MB (acima do limite do GitHub). Por conta disso, ele foi zipado. Antes de executar os Notebooks, vá até a pasta `data/` e descompacte o arquivo `edges_2days.zip`.
 
 ### 2. Execução via Jupyter Notebook
 A forma mais didática de visualizar as análises é rodando os Notebooks, pois os gráficos e os resultados ficam salvos logo abaixo de cada bloco de código.

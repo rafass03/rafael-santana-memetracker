@@ -24,13 +24,9 @@ input_file = "data/edges_2days.csv"
 report_dir = "report"
 os.makedirs(report_dir, exist_ok=True)
 
-print("1. Carregando os dados e construindo o grafo direcionado original...")
+print("Carregando os dados e construindo o grafo direcionado original...")
 df = pd.read_csv(input_file, on_bad_lines='skip')
 G_orig = nx.from_pandas_edgelist(df, source='source', target='target', create_using=nx.DiGraph())
-
-print("==================================================")
-print("PARTE 1 - ANÁLISE ESTRUTURAL OBRIGATÓRIA")
-print("==================================================")
 
 num_v_orig = G_orig.number_of_nodes()
 num_e_orig = G_orig.number_of_edges()

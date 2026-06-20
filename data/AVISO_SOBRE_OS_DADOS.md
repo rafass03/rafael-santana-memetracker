@@ -2,9 +2,9 @@
  AVISO IMPORTANTE SOBRE OS DADOS!
 =================================================
 
-Os arquivos de dados brutos (`quotes_2008-08.txt.gz e quotes_2008-08.txt`) não foram incluídos neste repositório.
+Os arquivos de dados brutos (`quotes_2008-08.txt.gz` e `quotes_2008-08.txt`) não foram incluídos neste repositório.
 
-O dado processado resultante do 01 do Jupyter ou Script (`edges_2days.csv`) possui 188 MB e também não foi incluído no repositório. Em vez disso, ele está disponibilizado aqui nesta pasta de forma compactada: **`edges_2days.zip`**.
+O dado processado resultante da execução do Notebook 01 ou Script 01 (`edges_2days.csv`) possui 188 MB e também não foi incluído no repositório. Em vez disso, ele está disponibilizado aqui nesta pasta de forma compactada: **`edges_2days.zip`**.
 
 ### INSTRUÇÕES:
 

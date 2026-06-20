@@ -142,7 +142,10 @@ core_graph = nx.k_core(LCC, k=min(max_deg // 2, 5))
 if core_graph.number_of_nodes() < 10 or core_graph.number_of_nodes() > 1000:
     # Fallback para amostra ego graph do nó de maior grau
     max_node = max(dict(LCC.degree()).items(), key=lambda x: x[1])[0]
-    core_graph = nx.ego_graph(LCC, max_node, radius=2)
+    core_graph = nx.ego_graph(LCC, max_node, radius=1)
+    if core_graph.number_of_nodes() > 800:
+        neighbors = list(LCC.neighbors(max_node))[:800]
+        core_graph = LCC.subgraph([max_node] + neighbors)
 
 plt.figure(figsize=(10, 10))
 pos = nx.spring_layout(core_graph, seed=42)

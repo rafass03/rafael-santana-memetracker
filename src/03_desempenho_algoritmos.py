@@ -91,25 +91,29 @@ def main():
     run_experiment(out_file, "Algoritmo de Tarjan (SCC)", lambda i: list(nx.strongly_connected_components(G_dir)), 30)
     
     print_and_write(out_file, "\n--- EXTRAINDO SUBGRAFOS PARA ALGORITMOS MAIS PESADOS ---")
+    max_node = max(dict(LCC.degree()).items(), key=lambda x: x[1])[0]
+    
     # Subgrafo de 5000 nós para Dijkstra vs Bellman-Ford
-    sub_5k_nodes = list(nx.bfs_tree(LCC, sources_30[0], depth_limit=3).nodes())[:5000]
+    sub_5k_nodes = list(nx.bfs_tree(LCC, max_node, depth_limit=3).nodes())[:5000]
     sub_5k = LCC.subgraph(sub_5k_nodes).copy()
     print_and_write(out_file, f"Subgrafo 5K: {sub_5k.number_of_nodes()} V, {sub_5k.number_of_edges()} E")
-    sources_sub_30 = random.sample(list(sub_5k.nodes()), 30)
+    n_runs_5k = min(30, sub_5k.number_of_nodes())
+    sources_sub_30 = random.sample(list(sub_5k.nodes()), n_runs_5k)
     
     # Subgrafo de 200 nós para Floyd-Warshall (O(V^3))
-    sub_200_nodes = list(nx.bfs_tree(LCC, sources_30[0], depth_limit=2).nodes())[:200]
+    sub_200_nodes = list(nx.bfs_tree(LCC, max_node, depth_limit=2).nodes())[:200]
     sub_200 = LCC.subgraph(sub_200_nodes).copy()
     print_and_write(out_file, f"Subgrafo 200: {sub_200.number_of_nodes()} V, {sub_200.number_of_edges()} E\n")
     
     # 6. Dijkstra vs Bellman-Ford vs BFS no Subgrafo de 5000 nós
-    run_experiment(out_file, "Caminhos Minimos: BFS (Baseline 5K)", lambda i: list(nx.bfs_edges(sub_5k, sources_sub_30[i])), 30)
-    run_experiment(out_file, "Caminhos Minimos: Dijkstra (5K)", lambda i: nx.single_source_dijkstra_path_length(sub_5k, sources_sub_30[i], weight=None), 30)
-    run_experiment(out_file, "Caminhos Minimos: Bellman-Ford (5K)", lambda i: nx.single_source_bellman_ford_path_length(sub_5k, sources_sub_30[i], weight=None), 30)
+    run_experiment(out_file, "Caminhos Minimos: BFS (Baseline 5K)", lambda i: list(nx.bfs_edges(sub_5k, sources_sub_30[i])), n_runs_5k)
+    run_experiment(out_file, "Caminhos Minimos: Dijkstra (5K)", lambda i: nx.single_source_dijkstra_path_length(sub_5k, sources_sub_30[i], weight=None), n_runs_5k)
+    run_experiment(out_file, "Caminhos Minimos: Bellman-Ford (5K)", lambda i: nx.single_source_bellman_ford_path_length(sub_5k, sources_sub_30[i], weight=None), n_runs_5k)
     
     # 7. Floyd-Warshall no Subgrafo de 200 nós (APSP)
     # Vamos rodar n=10 (amostra pequena) para forçar o uso da t-Student
-    run_experiment(out_file, "Floyd-Warshall (APSP 200)", lambda i: nx.floyd_warshall(sub_200, weight=None), 10)
+    n_runs_200 = min(10, sub_200.number_of_nodes())
+    run_experiment(out_file, "Floyd-Warshall (APSP 200)", lambda i: nx.floyd_warshall(sub_200, weight=None), n_runs_200)
 
     print_and_write(out_file, "================ CONCLUIDO ================")
     out_file.close()

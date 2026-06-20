@@ -25,7 +25,6 @@ Thumbs.db
 .idea/
 
 # Ignorar a pasta de relatórios/latex
-report/
-*.pdf
-*.aux
-*.log
+*.cls
+*.bib
+*.tex
